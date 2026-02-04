@@ -76,11 +76,94 @@ export class AppComponent implements OnInit {
       type: 'scatter'
     }];
 
-    this.revenueLayout = { title: 'CA par produit', margin: { b: 150 } };
-    this.categoryLayout = { title: 'CA par catégorie' };
-    this.topLayout = { title: 'Top ventes', margin: { b: 150 } };
-    this.scatterLayout = { title: 'Prix vs ventes' };
+    this.revenueLayout = {
+      title: {
+        text: 'Chiffre d’affaires par produit',
+        font: { size: 24, color: '#333' },
+        xref: 'paper',
+        x: 0.5
+      },
+      margin: { b: 150 },
+      annotations: [
+        {
+          text: 'Le CA est calculé comme prix * nombre de ventes',
+          xref: 'paper',
+          yref: 'paper',
+          x: 0,
+          y: -0.25,
+          showarrow: false,
+          font: { size: 14, color: '#555' },
+          align: 'left'
+        }
+      ]
+    };
+
+    this.categoryLayout = {
+      title: {
+        text: 'Répartition du chiffre d’affaires par catégorie',
+        font: { size: 24, color: '#333' },
+        xref: 'paper',
+        x: 0.5
+      },
+      annotations: [
+        {
+          text: 'Chaque part représente le CA total par catégorie',
+          xref: 'paper',
+          yref: 'paper',
+          x: 0,
+          y: -0.25,
+          showarrow: false,
+          font: { size: 14, color: '#555' }
+        }
+      ]
+    };
+
+    this.topLayout = {
+      title: {
+        text: 'Top 5 produits les plus vendus',
+        font: { size: 24, color: '#333' },
+        xref: 'paper',
+        x: 0.5
+      },
+      margin: { b: 150 },
+      annotations: [
+        {
+          text: 'Classement selon le nombre de ventes',
+          xref: 'paper',
+          yref: 'paper',
+          x: 0,
+          y: -0.25,
+          showarrow: false,
+          font: { size: 14, color: '#555' }
+        }
+      ]
+    };
+
+    this.scatterLayout = {
+      title: {
+        text: 'Relation prix / nombre de ventes',
+        font: { size: 24, color: '#333' },
+        xref: 'paper',
+        x: 0.5
+      },
+      xaxis: { title: 'Prix ($)' },
+      yaxis: { title: 'Nombre de ventes' },
+      annotations: [
+        {
+          text: 'Chaque point représente un produit',
+          xref: 'paper',
+          yref: 'paper',
+          x: 0,
+          y: -0.15,
+          showarrow: false,
+          font: { size: 14, color: '#555' }
+        }
+      ]
+    };
+
 
     this.revision++;
   }
+
+
 }
