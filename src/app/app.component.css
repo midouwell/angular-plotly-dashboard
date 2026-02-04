@@ -1,0 +1,12 @@
+h1 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+app-revenue-chart,
+app-category-chart,
+app-top-products,
+app-scatter-chart {
+  display: block;
+  margin-bottom: 40px;
+}
