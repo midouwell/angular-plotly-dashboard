@@ -1,12 +1,41 @@
-h1 {
-  text-align: center;
-  margin: 20px 0;
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  font-family: Arial, sans-serif;
 }
 
-app-revenue-chart,
-app-category-chart,
-app-top-products,
-app-scatter-chart {
-  display: block;
-  margin-bottom: 40px;
+.sidebar {
+  width: 200px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-right: 1px solid #ccc;
+}
+
+.sidebar button {
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+
+.sidebar button:hover {
+  background-color: #0056b3;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow: auto;
+}
+
+plotly-plot {
+  width: 100%;
+  height: 500px;
 }

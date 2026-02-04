@@ -1,13 +1,27 @@
-<h1>📊 Dashboard Commerce</h1>
+<div class="dashboard-container">
+  <!-- Colonne gauche -->
+  <div class="sidebar">
+    <button (click)="selectGraph('revenue')">CA par produit</button>
+    <button (click)="selectGraph('category')">CA par catégorie</button>
+    <button (click)="selectGraph('top')">Top produits</button>
+    <button (click)="selectGraph('scatter')">Prix vs ventes</button>
+  </div>
 
-<app-revenue-chart [data]="revenueData" [layout]="revenueLayout" [revision]="revision">
-</app-revenue-chart>
+  <!-- Zone droite -->
+  <div class="content">
+    <app-revenue-chart *ngIf="selectedGraph==='revenue'" [data]="revenueData" [layout]="revenueLayout"
+      [revision]="revision">
+    </app-revenue-chart>
 
-<app-category-chart [data]="categoryData" [layout]="categoryLayout" [revision]="revision">
-</app-category-chart>
+    <app-category-chart *ngIf="selectedGraph==='category'" [data]="categoryData" [layout]="categoryLayout"
+      [revision]="revision">
+    </app-category-chart>
 
-<app-top-products [data]="topData" [layout]="topLayout" [revision]="revision">
-</app-top-products>
+    <app-top-products *ngIf="selectedGraph==='top'" [data]="topData" [layout]="topLayout" [revision]="revision">
+    </app-top-products>
 
-<app-scatter-chart [data]="scatterData" [layout]="scatterLayout" [revision]="revision">
-</app-scatter-chart>
+    <app-scatter-chart *ngIf="selectedGraph==='scatter'" [data]="scatterData" [layout]="scatterLayout"
+      [revision]="revision">
+    </app-scatter-chart>
+  </div>
+</div>
